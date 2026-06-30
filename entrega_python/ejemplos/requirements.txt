@@ -1,0 +1,22 @@
+# Dependencias del paquete de ejemplos (Paso 3 simulación + Paso 4 agente).
+# SOLO documentación: instalar en un entorno virtual aislado (.venv).
+#   python -m venv .venv
+#   .venv\Scripts\Activate.ps1     # Windows PowerShell
+#   pip install -r requirements.txt
+#
+# Versiones mínimas razonables (stack científico 2025-2026).
+
+# --- Núcleo: diseño y simulación de filtros (diseno_filtros.py, procesar_senal.py)
+numpy>=1.26          # arrays, FFT, álgebra, métricas SNR/RMSE
+scipy>=1.11          # firwin, cheby1/cheb1ord, ellip, iirnotch, freqz, welch, lfilter...
+matplotlib>=3.8      # Bode, tiempo, FFT, polos-ceros, retardo de grupo
+
+# --- Opcional: agente por árbol de decisión (agente_decision.py, estrategia 2)
+# El bloque de reglas IF-THEN corre con SOLO la stdlib; sklearn es opcional.
+scikit-learn>=1.4    # DecisionTreeClassifier, export_text, train_test_split
+
+# --- Opcional: agente difuso (referencia del KB, estrategia 3)
+scikit-fuzzy>=0.4.2  # lógica difusa (no usado por estos scripts, documentado)
+
+# --- Opcional: agente vía LLM (agente_llm.py, estrategia 4)
+anthropic>=0.40      # SDK de la API Claude (requiere ANTHROPIC_API_KEY en el entorno)
